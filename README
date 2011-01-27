@@ -1,0 +1,25 @@
+* WTF is this ?
+	Brainfuck 9p device driver
+
+* How To USE
+	1. add "devbrainfuck.c" to /sys/src/9/port/
+	2. add line "brainfuck" to pcf for example
+	3. mk 'CONF=pcf'
+		% cd /sys/src/9/pc/
+		% mk 'CONF=pcf'
+	4. copy kernel int to 9fat directory
+		% 9fat:
+		% cp /sys/src/9/pc/9pcf /n/9fat/bf9pcf
+	5. add line to /n/9fat/plan9.ini
+		bootfile=sdC0!9fat!bf9pcf
+	6. reboot plan9 and choose bf9pcf
+	7. bind brain fuck device to some where
+		% mkdir /mnt/bf
+		% bind -a '#b' /mnt/bf
+	8. send brainf**k command
+		% cd /mnt/bf
+		% echo '+++++++++[>++++++++>+++++++++++>+++++<<<-]>.>++.+++++++..+++.>-.------------.<++++++++.--------.+++.------.--------.>+.' > bfcmd
+	9. get result
+		% cat bfdata
+
+	That's it!
